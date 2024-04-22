@@ -20,7 +20,7 @@ knitr::opts_knit$set(root.dir = "C:/Users/Nel/Documents/IrsiCaixa/PROYECTOS/firs
 
 #install.packages("git2r")
 #install.packages("workflowr")
-library(workflowr)
+#library(workflowr)
 
 #Configure Git (only need to do once per computer)
 #wflow_git_config()
@@ -30,19 +30,19 @@ library(workflowr)
 #wflow_start("firstproject")
 
 #Build the website
-wflow_build()
+#wflow_build()
 
 #View the website (docs/index.html) on my local machine
-wflow_view()
+#wflow_view()
 
 #View the status of teh workflowr project
-wflow_status()
+#wflow_status()
 
 #Publish the project files
-wflow_publish(c("analysis/index.Rmd", "analysis/about.Rmd", "analysis/license.Rmd"), "Publish the initial files for firstproject")
+#wflow_publish(c("analysis/index.Rmd", "analysis/about.Rmd", "analysis/license.Rmd"), "Publish the initial files for firstproject")
 
 #Put the code on GitHub as an online website
-wflow_use_github("nmarin-irsi")
+#wflow_use_github("nmarin-irsi")
 
 #Send/push the files to GitHub
 #wflow_git_push() did not work
