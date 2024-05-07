@@ -1,0 +1,132 @@
+---
+title: "Function_testing"
+output: html_document
+date: "2024-05-07"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Package *base*
+
+```{r base}
+
+#Help files
+?mean
+help.search("mean")
+help(package = "utils")
+
+#Info about an object
+str(iris)
+class(iris)
+typeof(iris)
+summary(iris)
+
+#Using packages
+install.packages("dplyr")
+library(dplyr)
+dplyr::select()
+data(iris)
+
+#Working directory
+getwd()
+setwd()
+
+#Creating vectors
+vector <- c(2, 4, 6)
+2:6
+seq(2, 3, by=0.5)
+rep(1:2, times=3)
+rep(1:2, each=3)
+
+#Working with vectors
+sort(vector)
+rev(vector)
+table(vector)
+unique(vector)
+
+#Selecting vector elements
+vector[3]
+vector[-3]
+vector[2:3]
+vector[-(2:3)]
+vector[c(1,3)]
+vector[vector == 4]
+vector[vector < 5]
+vector[vector %in% c(1,2,3)]
+vector["apple"]
+
+#Programming structures
+#For loop
+#While loop
+#If statement
+#Functions
+
+#Reading and writing data
+read.table("file.txt")
+read.csv("file.csv")
+load("file.RData")
+write.table(df, "file.txt")
+write.csv(df, "file.csv")
+save(df, file="file.RData")
+
+#Conditions
+a == b
+a != b
+a > b
+a < b
+a >= b
+a <= b
+is.na(a)
+is.null(a)
+
+#Type transformations
+as.logical(a)
+as.numeric(a)
+as.character(a)
+as.factor(a)
+
+#Math functions
+log(a)
+exp(a)
+max(a)
+min(a)
+sum(a)
+mean(a)
+median(a)
+quantile(a)
+round(a, 1)
+signif(a, 1)
+cor(x, y)
+rank(a)
+var(a)
+sd(a)
+
+#Environment
+ls()
+rm(a)
+
+#Matrices
+m <- matrix(c(1, 1, 1, 2, 2, 2, 3, 3, 3), nrow = 3, ncol = 3)
+m[2, ]
+m[, 1]
+m[2,3]
+
+#Lists
+
+#Dataframes
+
+#Strings
+
+#Factors
+
+#Statistics
+
+#Distributions
+
+#Plotting
+
+```
+
+## 
