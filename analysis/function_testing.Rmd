@@ -12,6 +12,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r base}
 
+##################################################################
+vector <- c(2, 4, 6)
+vector_2 <- c(5, 7, 11)
+m <- matrix(c(1, 1, 1, 2, 2, 2, 3, 3, 3), nrow = 3, ncol = 3)
+n <- m
+l <- list(x = 1:5, y = c("a", "b"))
+df <- data.frame(x =  1:3, y = c("a", "b", "c"))
+x <- "Hello"
+y <- "World"
+##################################################################
+
 #Help files
 ?mean
 help.search("mean")
@@ -34,7 +45,6 @@ getwd()
 setwd()
 
 #Creating vectors
-vector <- c(2, 4, 6)
 2:6
 seq(2, 3, by=0.5)
 rep(1:2, times=3)
@@ -108,25 +118,109 @@ ls()
 rm(a)
 
 #Matrices
-m <- matrix(c(1, 1, 1, 2, 2, 2, 3, 3, 3), nrow = 3, ncol = 3)
 m[2, ]
 m[, 1]
 m[2,3]
+t(m)
+m %*% n
+solve(m, n)
 
 #Lists
+l[[2]]
+l[1]
+l$x
+l["y"]
 
 #Dataframes
+df$x
+df[[1]]
+df[, 1]
+df[1, ]
+df[1,1]
+View(df)
+head(df)
+nrow(df)
+ncol(df)
+dim(df)
+cbind(df, z = c("m", "n", "o"))
+rbind(df, c(4, "d"))
 
 #Strings
+paste(x, y, sep = "")
+paste(vector, collapse = "")
+grep("el", x)
+gsub("el", "EL", x)
+toupper(x)
+tolower(x)
+nchar(x)
 
 #Factors
+factor(vector)
+cut(vector, breaks = 4)
 
 #Statistics
+lm(y ~ x, data = df)
+glm(y ~ x, data = df)
+summary(df)
+t.test(x, y)
+pairwise.t.test()
+prop.test()
+aov()
 
 #Distributions
+rnorm()
+dnorm()
+pnorm()
+qnorm()
+rpois()
+dpois()
+ppois()
+qpois()
+rbinom()
+dbinom()
+pbinom()
+qbinom()
+runif()
+dunif()
+punif()
+qunif()
 
 #Plotting
+plot(vector)
+plot(vector, vector_2)
+hist(vector)
 
 ```
 
-## 
+## Package *base (regular expressions)*
+
+```{r regex}
+
+##########################################################################
+string <- c("Hippopotamus", "Rhymenoceros", "time for bottomless lyrics")
+##########################################################################
+
+#Detect patterns
+grep("t.m", string)
+grep("t.m", string, value = TRUE)
+grepl("t.m", string) #OR stringr::str_detect(string, "t.m")
+
+#Locate patterns
+regexpr("t.m", string) #OR stringr::str_locate(string, "t.m")
+gregexpr("t.m", string) #OR stringr::str_locate_all(string, "t.m")
+
+#Split using patterns
+strsplit(string, "t.m") #OR stringr::str_split(string, "t.m")
+
+#Extract patterns
+regmatches(string, regexpr("t.m", string)) #OR stringr::str_extract(string, "t.m")
+                                           #stringr::str_match(string, "t.m")
+regmatches(string, gregexpr("t.m", string)) #OR stringr::str_extract_all(string, "t.m")
+                                            #stringr::str_extract_all(string, "t.m", simplify = TRUE)
+                                            #stringr::str_match_all(string, "t.m")
+
+#Replace patterns
+sub("t.m", "TM", string) #OR stringr::str_replace(string, "t.m", "TM")
+gsub("t.m", "TM", string) #OR stringr::str_replace_all(string, "t.m", "TM")
+
+```
